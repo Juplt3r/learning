@@ -1,8 +1,10 @@
 import random
 import os 
 
-Answer = random.randint(0, 100)
+Answer = random.randint(1, 99)
 print(Answer)
+
+pts = 10
 
 MinNo = 0
 MaxNo = 100
@@ -19,11 +21,17 @@ while win != True:
             os.system("cls")
             print("Incorrect!")
             MinNo = Guess
+            pts -= 1
         elif Guess > Answer:
             os.system("cls")
             print("Incorrect!")
             MaxNo = Guess
+            pts -= 1
         elif Guess == Answer:
             os.system("cls")
             print("Congrats! The Correct Answer is", Guess)
+            if pts > 0:
+                print("Final Score is", pts, "out of 10")
+            else:
+                print("Final Score is 0 out of 10")
             win = True
